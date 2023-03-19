@@ -6,7 +6,7 @@
   <t-o-d-o-component v-bind:todo-list="todoList"
                      v-bind:todo-list-done="filterDone()"
                      v-bind:todo-list-to-do="filterToDo()"
-  ></t-o-d-o-component>
+                     v-on:removetodo="removeTodo" />
 
   <button v-on:click="clearTodoList()">Clear todo-list</button>
   <button v-on:click="removeDoneTodo()">Clear todo done</button>

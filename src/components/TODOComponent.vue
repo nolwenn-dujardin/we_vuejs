@@ -5,7 +5,7 @@
     <ul>
       <li v-for="todo in todoList" :key="todo">
         {{ todo.intitule }} : {{ todo.etat.toString() }}
-        <!--<button v-on:click="removeTodo(todos.indexOf(todo))">X</button> -->
+        <button v-on:click="removeTodo(todoList.indexOf(todo))">X</button>
       </li>
     </ul>
 
@@ -27,16 +27,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import {Options, Vue} from "vue-class-component";
 
-export default defineComponent({
+@Options({
   props: {
     todoList: [],
     todoListToDo: [],
     todoListDone: []
   }
-
 })
+//export default class Todos extends Vue {
+export default class TODOComponent extends Vue {
+  removeTodo(index: number) {
+    this.$emit('removetodo', index)
+  }
+
+}
 
 
 </script>
